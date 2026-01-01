@@ -3,8 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import  BooleanField, StringField, PasswordField, SubmitField, SelectField
 from wtforms.validators import Email, DataRequired, Length, EqualTo, ValidationError
 
-from app.models.users import User
-from app.models.roles import Role
+from app.models import User, Role
 
 from extensions import db
 
@@ -36,7 +35,6 @@ def _role_choice():
         )
     ]
 
-#  Create Form 
 class UserCreateForm(FlaskForm):
     username = StringField(
         "Username",
@@ -96,7 +94,7 @@ class UserCreateForm(FlaskForm):
         if exists:
             raise ValidationError("This email is already registered.")
 
-# Edit Forms
+
 class UserEditForm(FlaskForm):
     username = StringField(
         "Username",
@@ -154,8 +152,6 @@ class UserEditForm(FlaskForm):
         exists = db.session.scalar(q)
         if exists:
             raise ValidationError("This email is already registered")
-
-# Delete Forms
 
 class ConfirmDeleteForm(FlaskForm):
     submit = SubmitField("Comfirm Delete")
