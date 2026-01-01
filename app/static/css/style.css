@@ -1,0 +1,104 @@
+* {
+  background-color: white;
+  color: black;
+}
+/* /auth/login.html */
+.card-first {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.card-header-register {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    /* margin-left: 200px;
+    margin-right: 200px; */
+    width: 500px;
+}
+.card-header-h1 {
+    font: bold;
+    color: skyblue;
+}
+.form-register {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.form-register-view {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 20px;
+}
+.form-register-view input {
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    padding-left: 10px;
+    border: 1px solid gray;
+}
+.form-register-button input{
+    width: 300px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(107, 243, 139);
+    border: 1px solid rgb(107, 243, 139);
+    margin-top: 20px;
+}
+
+.form-register-text {
+    color: blue;
+}
+
+/* auth/login.html */
+
+.card-header-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 500px;
+}
+.card-header-login h1 {
+    color: skyblue;
+    font: bold;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-login-view {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.form-login-view input {
+    width: 300px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+/* Users/index.html */
+
+.table-border {
+    border-collapse: 1px black collapse;
+}

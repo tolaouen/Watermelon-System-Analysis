@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    <title>Login</title>
+</head>
+<body>
+    {% block title %}Login{% endblock %}
+
+    {% block content %}
+    <section>
+        <div class="card-first">
+            <div class="card-header-login">
+                <h1>Login Your Account</h1>
+                <form class="form-login" method="POST" action="{{ url_for('auth.login') }}">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                        <div class="form-login-view">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" id="username" placeholder="Username" required autofocus>
+                        </div>
+                        <div class="form-login-view">
+                            <label for="password">Password</label>
+                            <input type="password" name="password" id="password" placeholder="Password" required>
+                        </div>
+
+                        <div class="form-register-button">
+                            <input type="button" value="Login">
+                        </div>
+                        <div>
+                            <p>
+                                If you don't have an account.
+                                <a href="{{ url_for('auth.register') }}" class="form-register-text">Sign Up</a>
+                            </p>
+                        </div>
+                    
+                </form>
+            </div>
+        </div>
+    </section>
+    {% endblock %}
+</body>
+</html>
