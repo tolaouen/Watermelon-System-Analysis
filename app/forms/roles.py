@@ -3,7 +3,8 @@ from collections import defaultdict
 from wtforms import StringField, TextAreaField, SubmitField
 from wtforms.validators import  DataRequired, Length, ValidationError
 
-from app.models import Role, Permission
+from app.models.roles import Role
+from app.models.permissions import Permission
 from extensions import db
 
 from app.forms.check_forms import MultiCheckBoxField

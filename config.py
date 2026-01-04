@@ -1,6 +1,6 @@
 import os 
 
 class Config:
-    DATABASE_URL = os.environ.get("DATABASE_URL")
-    SECRET_KEY = os.environ.get("SECRET_KEY")
-    TRACK_MODIFICATIONS = False
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL") or "sqlite:///store.db"
+    SECRET_KEY = os.environ.get("SECRET_KEY") or "i_love_you"
+    SQLALCHEMY_TRACK_MODIFICATIONS = False

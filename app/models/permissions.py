@@ -17,7 +17,7 @@ class Permission(db.Model):
 
     # Relationship Table
 
-    roles = db.relationship("Role", secondary=role_permissions, back_pupolates="permissions")
+    roles = db.relationship("Role", secondary=role_permissions, back_populates="permissions")
     
     def __repr__(self) -> str:
         return f"<Permissions {self.code}>"

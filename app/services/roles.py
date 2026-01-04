@@ -21,14 +21,14 @@ class RoleService:
     def create_role(data: dict, permission_id: Optional[int] = None) -> Role:
         role = Role(
             name = data["name"],
-            description = data.get("description" or "")
+            description = data.get("description", "")
         )
 
         if permission_id:
             permission = db.session.scalars(
                 db.select(Permission).filter(Permission.id.in_(permission_id))
             )
-            role.permission = list(permission)
+            role.permissions = list(permission)
         
         db.session.add(role)
         db.session.commit()
@@ -39,7 +39,7 @@ class RoleService:
     @staticmethod
     def update_role(role: Role, data: dict, permission_id: Optional[int] = None) -> Role:
         role.name = data["name"]
-        role.description = data.get("description" or "")
+        role.description = data.get("description", "")
 
         if permission_id:
             permission: List[Permission] = []
@@ -47,7 +47,7 @@ class RoleService:
                 permission = db.session.scalars(
                     db.select(Permission).filter(Permission.id.in_(permission_id))
                 )
-            role.permission = list[permission]
+            role.permissions = list(permission)
 
         db.session.commit()
         return role

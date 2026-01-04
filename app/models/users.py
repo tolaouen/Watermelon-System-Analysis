@@ -14,20 +14,20 @@ class User(UserMixin, db.Model):
     full_name = db.Column(db.String(120), nullable=False)
     is_active = db.Column(db.Boolean, default=True, nullable=False)
 
-    password_hashed = db.Column(db.String(120), unique=True, nullable=False)
+    password_hashed = db.Column(db.String(255), nullable=False)
 
-    created_at = db.Column(db.Datetime, default=datetime.utcnow(), nullable=False)
-    updated_at = db.Column(db.Datetime, default=datetime.utcnow(), onupdate=datetime.utcnow(), nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow, nullable=False)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow, nullable=False)
 
     # Relationship table
-    roles = db.relationship("Rols", secondary=user_roles, back_pupolates="users")
+    roles = db.relationship("Role", secondary=user_roles, back_populates="users")
 
     # Main step checking and generate password hashed
     def set_password(self, password: str) -> None:
         self.password_hashed = generate_password_hash(password)
 
-    def checked_password(self, password: str) -> bool:
+    def check_password(self, password: str) -> bool:
         return check_password_hash(self.password_hashed, password)
-    
+
     def __repr__(self):
-        return f"<Users {self.username}>"
+        return f"<User {self.username}>"

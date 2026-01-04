@@ -8,7 +8,6 @@
     <title>Register</title>
 </head>
 <body>
-{% block title %}Sign Up{% endblock %}
 
 {% block content %}
     <section>
@@ -17,34 +16,35 @@
                 <h1 class="card-header-h1">Create Account</h1>
                 <div>
                     <form class="form-register" method="post" action="{{ url_for('auth.register') }}">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
                         <div class="form-register-view">
                             <label for="username">Username</label>
-                            <input type="text" name="username", id="username" value="{{ username or '' }}" placeholder="Username" required>
+                            <input type="text" name="username" id="username" value="{{ username or '' }}" placeholder="Username" required>
                         </div>
 
                         <div class="form-register-view">
                             <label for="full_name">Full Name</label>
-                            <input type="text" name="full_name", id="full_name" value="{{ full_name or '' }}" placeholder="Full Name" required>
+                            <input type="text" name="full_name" id="full_name" value="{{ full_name or '' }}" placeholder="Full Name" required>
                         </div>
                         <div class="form-register-view">
                             <label for="email">Email</label>
-                            <input type="email" name="email", id="email" value="{{ email or '' }}" placeholder="Email" required>
+                            <input type="email" name="email" id="email" value="{{ email or '' }}" placeholder="Email" required>
                         </div>
                         <div class="form-register-view">
                             <label for="password">Password</label>
-                            <input type="password" name="password", id="password" placeholder="Password" required>
+                            <input type="password" name="password" id="password" placeholder="Password" required>
                         </div>
                         <div class="form-register-view">
                             <label for="confirm_password">Confirm Password</label>
-                            <input type="password" name="confirm_password", id="confirm_password" placeholder="Confirm Password" required>
+                            <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
                         </div>
                         <div class="form-register-button">
-                            <input type="button" value="Sign Up">
-                        </div>
-                        <div>
-                            <p>If you have an account already. <a href="{{ url_for('auth.login') }}" class="form-register-text">Log In</a></p>
+                            <input type="submit" value="Sign Up">
                         </div>
                     </form>
+                </div>
+                <div>
+                    <p>If you have an account already. <a href="{{ url_for('auth.login') }}" class="form-register-text">Log In</a></p>
                 </div>
             </div>
         </div>
