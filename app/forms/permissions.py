@@ -86,7 +86,7 @@ class PermissionEditForm(FlaskForm):
             self.module.data =  original_permission.module
 
     def validate_code(self, field):
-        q = db.select(Permission).filter(Permission.code == field.data, Permission.id != self.original_role.id)
+        q = db.select(Permission).filter(Permission.code == field.data, Permission.id != self.original_permission.id)
 
         exists = db.session.scalar(q)
         if exists:

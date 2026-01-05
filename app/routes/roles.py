@@ -17,7 +17,7 @@ def detail(role_id:int):
     role = RoleService.get_role_by_id(role_id)
      
     if role is None:
-        abort(404, "User Not Found")
+        abort(404, "Role Not Found")
     return render_template("roles/detail.html", role=role)
 
 @role_router.route("/create", methods=["GET", "POST"])
@@ -44,7 +44,7 @@ def edit(role_id: int):
     role = RoleService.get_role_by_id(role_id)
 
     if role is None:
-        abort(404, "User Not Found")
+        abort(404, "Role Not Found")
 
     form = RoleEditForm(original_role=role, obj=role)
 
@@ -66,7 +66,7 @@ def edit(role_id: int):
 def delete_confirm(role_id):
     role = RoleService.get_role_by_id(role_id)
     if role is None:
-        abort(404, "User Not Found")
+        abort(404, "Role Not Found")
 
     form = RoleConfirmDelete()
     return render_template("roles/delete_confirm.html", role=role, form=form)
@@ -76,7 +76,7 @@ def delete_confirm(role_id):
 def delete(role_id):
     role = RoleService.get_role_by_id(role_id)
     if role is None:
-        abort(404, "User Not Found")
+        abort(404, "Role Not Found")
 
     RoleService.delete_role(role)
     flash(f"Role was deleted successfully.", "success")

@@ -9,8 +9,8 @@ permission_router = Blueprint("permissions", __name__, url_prefix="/permissions"
 @permission_router.route("/")
 @login_required
 def index():
-    permission = PermissionService.get_permission_all()
-    return render_template("permissions/index.html", permission=permission)
+    permissions = PermissionService.get_permission_all()
+    return render_template("permission/index.html", permissions=permissions)
 
 @permission_router.route("/<int:permission_id>")
 @login_required
@@ -20,7 +20,7 @@ def detail(permission_id: int):
     if permission is None:
         abort(404, "User Not Found")
 
-    return render_template("permissions/detail.html", permission=permission)
+    return render_template("permission/detail.html", permission=permission)
 
 @permission_router.route("/create", methods=["GET", "POST"])
 @login_required
@@ -40,7 +40,7 @@ def create():
 
         flash(f"Permission '{permission.code}' was created succesfully.", "success")
         return redirect(url_for('permissions.index'))
-    return render_template("permissions/create.html", form=form)
+    return render_template("permission/create.html", form=form)
 
 @permission_router.route("/<int:permission_id>/edit", methods=["GET", "POST"])
 @login_required
@@ -64,7 +64,7 @@ def edit(permission_id: int):
         flash(f"Permission '{permission.code}' was updated succesfully.", "succes")
         return redirect(url_for('permissions.detail', permission_id = permission.id))
     
-    return render_template("permissions/edit.html", form=form, permission=permission)
+    return render_template("permission/edit.html", form=form, permission=permission)
 
 @permission_router.route("/<int:permission_id>/delete_confirm", methods=["GET"])
 @login_required
@@ -75,7 +75,7 @@ def delete_confirm(permission_id: int):
         abort(404, "User Not Found")
     
     form = PermissionConfirmDelete()
-    return render_template("permissions/delete_confirm.html", form=form, permission=permission)
+    return render_template("permission/delete_confirm.html", form=form, permission=permission)
 
 @permission_router.route("/<int:permission_id>/delete", methods=["POST"])
 @login_required
