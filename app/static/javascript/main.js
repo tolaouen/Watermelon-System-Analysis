@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Get the elements
-const menuButton = document.getElementById('menu-button');
 const navLinks = document.getElementById('nav-links');
 
 // Add a click event listener to the button

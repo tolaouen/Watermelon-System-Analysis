@@ -6,7 +6,7 @@ Flask Microframework base server side for build API Applications
 - Forms Validation Login and Signup Account (Flask-Login)
 - Authentication 
 - Models Table Relationships
-- Templetes UI (HTML CSS Javascript)
+- Templetes UI (HTML CSS Bootstrap Javascript)
 - Services Handle (CRUD)
 - Routes Handle Connect Between Frontend and Backend
 - Data base connection (SQLite Local Connection)

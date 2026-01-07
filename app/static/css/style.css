@@ -1,5 +1,5 @@
 * {
-  background-color: white;
+  background-color: skyblue;
   color: black;
 }
 /* /auth/login.html */
@@ -111,11 +111,15 @@
     justify-content: flex-start;
     gap: 2 0px;
     align-items: center;
-    padding-left: 60px;
-    margin-top: 20px;
-    position: sticky;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 1400px;
+    border-radius: 10px;
+    z-index: 1080;
 }
 .logo a{
+    padding-left: 20px;
     font-size: 25px;
     text-decoration: none;
     font-weight: bold;
@@ -127,25 +131,34 @@
     justify-items: center;
     gap: 20px;
     align-items: center;
+    padding-left: 100px;
 }
 .nav-content li {
     list-style: none;
 }
+
+.nav-content li:hover {
+    color: #e55743;
+}
 .nav-content a {
     text-decoration: none;
-    color: black;
+    color: #835ed1;
 }
 .navbar-nav {
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    padding-left: 600px;
+    padding-left: 700px;
 }
 .text-navbar-loggin {
     color: blue;
 }
 .text-nav-logout a {
     color: red;
+}
+.text-nav-logout a:hover {
+    text-decoration: underline;
+    color:rgb(208, 222, 61)
 }
 /* app/template/permission/index.html */
 .column-table {
@@ -157,10 +170,11 @@
     border: 1px solid black;
     background-color: blue;
     color: white;
+    text-align: center;
 }
 .column-table tbody tr td {
     border: 1px solid black;
 }
 .container {
-    margin-top: 50px;
+    margin-top: 200px;
 }
